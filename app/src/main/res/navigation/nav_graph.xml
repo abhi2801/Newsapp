@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.mycompany.learningkotlin.view.NewsFragment"
+        android:label="News App"
+        tools:layout="@layout/fragment_news">
+        <action
+            android:id="@+id/action_mainFragment_to_firstFragment"
+            app:destination="@id/newsDetailsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_secondFragment"
+            app:destination="@id/newsSearchFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_favouriteNewsFragment"
+            app:destination="@id/favouriteNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.mycompany.learningkotlin.view.DetailNewsFragment"
+        android:label="Read News"
+        tools:layout="@layout/fragment_newsdetail" >
+        <argument
+            android:name="parcalableData"
+            app:argType="com.mycompany.learningkotlin.model.Article" />
+        <action
+            android:id="@+id/action_newsDetailsFragment_to_favouriteNewsFragment"
+            app:destination="@id/favouriteNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsSearchFragment"
+        android:name="com.mycompany.learningkotlin.view.SearchNewsFragment"
+        android:label="Search News"
+        tools:layout="@layout/fragment_second" />
+    <fragment
+        android:id="@+id/favouriteNewsFragment"
+        android:name="com.mycompany.learningkotlin.view.FavouriteNewsFragment"
+        android:label="Favourite News"
+        tools:layout="@layout/fragment_favourite" />
+</navigation>
